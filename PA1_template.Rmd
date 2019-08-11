@@ -1,12 +1,21 @@
 ---
 title: "Reproducible Research Course Project 1"
-output: html_document
+author: Mike Miller Jr.
+output:
+  html_document:
+    keep_md: yes
+    
 ---
+
+```{r}
+knitr::opts_chunk$set(warning=FALSE)
+```
+
 
 ```{r}
 library(ggplot2)
 
-activity <- read.csv("activity.csv")
+activity <- read.csv("/Users/mikemiller/Downloads/activity.csv")
 activity$date <- as.POSIXct(activity$date, "%Y-%m-%d")
 weekday <- weekdays(activity$date)
 activity <- cbind(activity, weekday)
